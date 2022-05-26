@@ -26,6 +26,7 @@
 // Define view properties here with @property
 @property (nonatomic) NSInteger initial;
 @property (nonatomic) NSArray* data;
+@property (nonatomic) NSString* authToken;
 @property (nonatomic) BOOL hideStatusBar;
 @property (nonatomic, copy) RCTDirectEventBlock onDismiss;
 @property (nonatomic, copy) RCTBubblingEventBlock onChange;
