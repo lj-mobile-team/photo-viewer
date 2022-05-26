@@ -1,4 +1,3 @@
-
 package com.merryjs.PhotoViewer;
 
 import android.content.Context;
@@ -9,18 +8,14 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.stfalcon.frescoimageviewer.ImageViewer;
 import com.facebook.react.views.imagehelper.ImageSource;
 
-/**
- * Created by bang on 07/08/2017.
- */
-
 public class MerryPhotoView extends View {
 
+    public String authToken;
     private MerryPhotoOverlay overlayView;
     protected ImageViewer.Builder builder;
 
@@ -108,6 +103,9 @@ public class MerryPhotoView extends View {
         super(context);
     }
 
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
 
     protected void init() {
         if(builder != null){
@@ -123,13 +121,13 @@ public class MerryPhotoView extends View {
                 })
                 .setOnDismissListener(getDismissListener());
 
-
         builder.setImageChangeListener(getImageChangeListener());
         builder.setStartPosition(getInitial());
         builder.hideStatusBar(isHideStatusBar());
         // builder.setCustomImageRequestBuilder(getLocalImage());
         builder.setCustomDraweeHierarchyBuilder(progressBarDrawableBuilder());
         overlayView = new MerryPhotoOverlay(context);
+        overlayView.setAuthToken(authToken);
         builder.setOverlayView(overlayView);
 
         ImageViewer imageViewer = builder.build();
