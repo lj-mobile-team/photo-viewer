@@ -1,11 +1,9 @@
 package com.merryjs.PhotoViewer;
 
-
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableType;
-
 
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
@@ -18,7 +16,6 @@ import org.json.JSONObject;
 
 import java.util.Iterator;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,10 +23,6 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-/**
- * Maintained By: Miguel Caballero
- * Source: https://github.com/artemyarulin/react-native-eval/blob/master/android/src/main/java/com/evaluator/react/ConversionUtil.java
- */
 public class Utils {
     private Utils() {
     }
