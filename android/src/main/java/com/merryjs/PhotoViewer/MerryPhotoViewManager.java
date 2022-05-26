@@ -1,11 +1,8 @@
-
 package com.merryjs.PhotoViewer;
-
 
 import android.content.Context;
 import android.util.Log;
 
-import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
@@ -13,18 +10,12 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.merryjs.PhotoViewer.MerryPhotoData;
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.merryjs.PhotoViewer.Utils;
 
 public class MerryPhotoViewManager extends SimpleViewManager<MerryPhotoView> {
     public static final String REACT_CLASS = "MerryPhotoView";
@@ -52,6 +43,11 @@ public class MerryPhotoViewManager extends SimpleViewManager<MerryPhotoView> {
     protected void onAfterUpdateTransaction(MerryPhotoView merryPhotoView) {
         super.onAfterUpdateTransaction(merryPhotoView);
         merryPhotoView.init();
+    }
+
+    @ReactProp(name = "authToken")
+    public void setAuthToken(MerryPhotoView merryPhotoView, String authToken) {
+        merryPhotoView.setAuthToken(authToken);
     }
 
     @ReactProp(name = "data")
