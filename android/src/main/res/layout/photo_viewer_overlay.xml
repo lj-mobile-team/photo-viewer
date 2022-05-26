@@ -11,19 +11,18 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:padding="16dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/btnClose"
         style="@style/SimpleImageButtonStyle"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/close_button_x" />
+        android:drawableTop="@drawable/close_icon"
+        android:paddingTop="16dp" />
     <Button
         android:id="@+id/btnShare"
         style="@style/SimpleButtonStyle"
@@ -31,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="@string/share" />
+        android:drawableTop="@drawable/share_icon"
+        android:paddingTop="16dp" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
