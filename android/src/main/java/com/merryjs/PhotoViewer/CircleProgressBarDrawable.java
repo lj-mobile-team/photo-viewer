@@ -4,11 +4,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.util.Log;
 
 import com.facebook.drawee.drawable.ProgressBarDrawable;
 
-// Source https://github.com/facebook/fresco/blob/master/samples/contrib/com/facebook/drawee/drawable/CircleProgressBarDrawable.java
 public class CircleProgressBarDrawable extends ProgressBarDrawable {
 	private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 	private int mLevel = 0;
