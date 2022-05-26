@@ -159,26 +159,36 @@
     MerryPhoto* currentPhoto = [self.dataSource.photos objectAtIndex:current];
     MerryPhotoData* d = self.reactPhotos[current];
 
-    [[_bridge moduleForClass:[RCTImageLoader class]] loadImageWithURLRequest:d.source.request
-        size:d.source.size
-        scale:d.source.scale
-        clipped:YES
-        resizeMode:RCTResizeModeStretch
-        progressBlock:^(int64_t progress, int64_t total) {
-            //            NSLog(@"%lld %lld", progress, total);
-        }
-        partialLoadBlock:nil
-        completionBlock:^(NSError* error, UIImage* image) {
-            if (image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
+    BOOL isGif = [d.source.request.URL.pathExtension isEqual: @"gif"];
 
-                    currentPhoto.image = image;
-
-                    [photosViewController updatePhoto:currentPhoto];
-
-                });
+    SDWebImageDownloader* downloader = [SDWebImageDownloader sharedDownloader];
+    
+    BOOL isLjUrl = [d.source.request.URL.absoluteString containsString:@"ic.pics.livejournal"];
+    
+    NSLog(@"URl Photos: %@ - %@", d.source.request.URL.absoluteString, isLjUrl ? @"TRUE" : @"FALSE");
+    
+    if (_authToken != nil && isLjUrl) {
+        NSString* bearerAuth = [NSString stringWithFormat:@"Bearer %@", _authToken];
+        [downloader setValue:bearerAuth forHTTPHeaderField:@"Authorization"];
+    } else {
+        [downloader setValue:@"" forHTTPHeaderField:@"Authorization"];
+    }
+    
+    [downloader
+     downloadImageWithURL:d.source.request.URL
+     options:0
+     progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL* _Nullable targetURL) {
+    }
+     completed:^(UIImage* image, NSData* data, NSError* error, BOOL finished) {
+        if (image && finished) {
+            if (isGif) {
+                currentPhoto.imageData = data;
+            } else {
+                currentPhoto.image = image;
             }
-        }];
+            [photosViewController updatePhoto:currentPhoto];
+        }
+    }];
 }
 
 #pragma mark - NYTPhotosViewControllerDelegate
