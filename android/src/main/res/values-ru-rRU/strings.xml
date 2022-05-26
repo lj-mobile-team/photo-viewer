@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share">Поделиться</string>
+    <string name="shareError">Произошла ошибка</string>
+    <string name="close">Закрыть</string>
+</resources>
