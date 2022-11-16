@@ -314,13 +314,12 @@
 + (NSAttributedString*)attributedTitleFromString:(NSString*)caption
                                                 :(UIColor*)color
 {
-    const CGFloat *components = CGColorGetComponents(color.CGColor);
     return [[NSAttributedString alloc]
         initWithString:caption
             attributes:@{
                 NSForegroundColorAttributeName : color,
                 NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody],
-                NSBackgroundColorAttributeName: [UIColor colorWithRed:components[0] green:components[0] blue:components[0] alpha:components[170]]
+                NSBackgroundColorAttributeName: [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0 /255.0 alpha:0.5]
             }];
 }
 
@@ -331,7 +330,8 @@
         initWithString:summary
             attributes:@{
                 NSForegroundColorAttributeName : color,
-                NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody]
+                NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody],
+                NSBackgroundColorAttributeName: [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0 /255.0 alpha:0.5]
             }];
 }
 
