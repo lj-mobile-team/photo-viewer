@@ -319,8 +319,7 @@
             attributes:@{
                 NSForegroundColorAttributeName : color,
                 NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody],
-                NSBackgroundColorAttributeName: [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0 /255.0 alpha:0.5],
-                NSBaselineOffsetAttributeName: @28.0
+                NSBackgroundColorAttributeName: [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0 /255.0 alpha:0.5]
             }];
 }
 
@@ -332,8 +331,7 @@
             attributes:@{
                 NSForegroundColorAttributeName : color,
                 NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody],
-                NSBackgroundColorAttributeName: [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0 /255.0 alpha:0.5],
-                NSBaselineOffsetAttributeName: @28.0
+                NSBackgroundColorAttributeName: [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0 /255.0 alpha:0.5]
             }];
 }
 
