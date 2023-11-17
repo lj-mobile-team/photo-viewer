@@ -101,6 +101,9 @@ public class MerryPhotoOverlay extends RelativeLayout {
 
     public void setTitleText(String text) {
         tvTitle.setText(text);
+        
+        boolean isHidden = text == null || text.trim().isEmpty();
+	    tvTitle.setVisibility(isHidden ? View.GONE : View.VISIBLE);
     }
 
     private void sendShareIntent() {
